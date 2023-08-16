@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bookshop.css">
+    <title>Bookshop</title>
+</head>
+
+<body onload="onInit()">
+
+    <h1 data-trans="title">Welcome to the bookshop!</h1>
+
+    <section class="tool-bar">
+        <div>
+            <button class="table-view-btn" onclick="onSetViewBy('table')">Table View</button>
+            <button class="card-view-btn" onclick="onSetViewBy('card')">Card View</button>
+        </div>
+        <div>
+            <button class="create-new-book" onclick="onAddBookClick()">Create new book</button>
+            <label>Filter:
+                <input type="text" placeholder="Book Title" class="search-term">
+                <button class="search-btn" onclick="onSetFilterBy({title: ''})">Search</button>
+            </label>
+            <label>Select Language:
+                <select class="select-lang" onchange="setLang()">
+                    <option value="en">English</option>
+                    <option value="he">עברית</option>
+                </select>
+            </label>
+        </div>
+        <div>
+            <label>Minimum Rate:
+                <input type="range" min="1" max="10" value="5" title="Minimum Rate" class="filter-rate-range"
+                    onchange="this.title = this.value; onSetFilterBy({minRate: +this.value})">
+            </label>
+            <label>Sort By:
+                <select class="select-sort" onchange="onSetSortBy()">
+                    <option value="">Select</option>
+                    <option value="title">By Title</option>
+                    <option value="price">By Price</option>
+                </select>
+            </label>
+            <label>Descending:
+                <input type="checkbox" class="is-descending" oninput="onSetSortBy()">
+            </label>
+        </div>
+    </section>
+
+    <section class="books-container">
+        <table class="books-table">
+            <thead class="books-table-head">
+                <td>ID</td>
+                <td>Title</td>
+                <td>Price</td>
+                <td colspan="3">Actions</td>
+            </thead>
+
+            <tbody class="books-table-body">
+
+            </tbody>
+        </table>
+    </section>
+
+    <section class="cards-container"></section>
+
+    <section class="bottom-nav-bar">
+        <button class="prev-page-btn" onclick="onPrevPage()">Previous Page</button>
+        <button class="next-page-btn" onclick="onNextPage()">Next Page</button>
+    </section>
+
+    <div class="modal">
+        <h6>ID: <span></span></h6>
+        <div class="book-img"></div>
+        <h3></h3>
+        <h4></h4>
+        <input type="number" min="0" max="10" value="0" title="Rate" class="rate-range"
+            onchange="onUpdateBookRate(+this.value)">
+        <button onclick="onCloseModal()">Close</button>
+    </div>
+
+    <footer></footer>
+
+    <div class="user-notification"></div>
+
+    <script src="js/services/util.service.js"></script>
+    <script src="js/services/i18n.service.js"></script>
+    <script src="js/services/storage.service.js"></script>
+    <script src="js/services/bookshop.service.js"></script>
+    <script src="js/bookshop.controller.js"></script>
+</body>
+
+</html>

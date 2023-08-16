@@ -1,0 +1,168 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --main-color: #fff;
+    --secondary-color: #aaa;
+}
+
+body {
+    position: relative;
+
+    display: grid;
+    place-items: center;
+    place-content: center;
+    gap: 10px;
+
+    width: 100vw;
+    /* Why do I have scrollbars */
+    height: 100vh;
+
+    margin: 0;
+    color: var(--main-color);
+    font-family: 'Courier New', Courier, monospace;
+    background-color: cadetblue;
+}
+
+.tool-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+table {
+    /* padding: 5px; */
+    width: 30vw;
+    border: 1px solid var(--secondary-color);
+    /* border-radius: 5%; */
+}
+
+thead {
+    background-color: rgb(79, 132, 133);
+}
+
+tbody,
+td {
+    border: 1px solid var(--secondary-color);
+    padding: 10px;
+}
+
+tr:nth-of-type(even) {
+    background-color: rgb(79, 132, 133);
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+
+    max-width: 30vw;
+}
+
+.card {
+    display: grid;
+    grid-template-rows: 2fr 1fr 1fr 2fr;
+    place-items: center;
+
+    text-align: center;
+    height: 50vh;
+    padding: 20px;
+    background-color: #ffffff30;
+}
+
+.card:nth-last-of-type(even) {
+    background-color: rgb(79, 132, 133);
+}
+
+.card button {
+    width: 100%;
+}
+
+button {
+    color: var(--main-color);
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--secondary-color);
+    border: 1px solid lightcyan
+}
+
+.create-new-book {
+    margin: 10px 0px;
+}
+
+.remove-book-btn {
+    background-color: indianred;
+}
+
+.update-book-btn {
+    background-color: darksalmon;
+}
+
+.read-book-btn {
+    background-color: royalblue;
+}
+
+.user-notification {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+    right: 2vw;
+    bottom: -150px;
+    color: black;
+    background-color: bisque;
+
+}
+
+.user-notification.open {
+    bottom: 10px;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    position: fixed;
+    top: 0px;
+    left: 150%;
+
+    background-color: var(--secondary-color);
+    padding: 10px;
+    height: 100vh;
+    min-width: 30%;
+    text-align: center;
+    transition: left .5s;
+}
+
+.modal.open {
+    left: 70%;
+}
+
+.modal h3 {
+    color: var(--main-color);
+}
+
+.modal h4 {
+    color: var(--main-color);
+}
+
+.modal>button {
+    margin-block-start: 10px;
+}
+
+.modal .book-img {
+    width: 70%;
+}
+
+.hide {
+    display: none;
+}
+
+.RTL {
+    direction: rtl;
+}
